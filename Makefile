@@ -1,0 +1,2 @@
+version-up:
+	echo $(version)
