@@ -22,7 +22,7 @@ jobs:
           echo "diff_count"$diff_count
           commits=${{ github.event.pull_request.commits }}
           if [ $diff_count -eq 2 ]; then
-            new_version=$(cat pkg/appx/version.go | grep -Po 'version = "\K.*?(?=")')
+            new_version=$(cat package.json | grep -Po '"version": "\K.*?(?=")')
             echo "version=$new_version" >> $GITHUB_OUTPUT 
             echo "version change is detected. new version: "$new_version
           else
