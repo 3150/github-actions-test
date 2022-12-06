@@ -26,7 +26,7 @@ jobs:
             echo "version=$new_version" >> $GITHUB_OUTPUT 
             echo "version change is detected. new version: "$new_version
           else
-            echo "version change is not detected"
+            echo "version change is not detected!"
             exit 0
           fi
   post-comment-to-pr:
