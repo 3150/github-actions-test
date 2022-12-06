@@ -2,7 +2,7 @@ name: check version change on PR
 on:
   pull_request:
     paths:
-      - ./package.json
+      - package.json
 
 jobs:
   check-version-change:
@@ -18,7 +18,7 @@ jobs:
       - name: check version change
         id: check-version-change
         run: |
-          diff_count=$(git diff origin/${{ github.base_ref }} -- ./package.json | grep -c 'version')
+          diff_count=$(git diff origin/${{ github.base_ref }} -- package.json | grep -c 'version')
           echo "diff_count"$diff_count
           commits=${{ github.event.pull_request.commits }}
           if [ $diff_count -eq 2 ]; then
